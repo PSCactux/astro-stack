@@ -1,0 +1,32 @@
+[project]
+name = "astro-stack"
+version = "0.1.0"
+description = "Align and stack astrophotography frames shot with a phone through a small telescope."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "PSCactux" }]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.12",
+    "scikit-image>=0.22",
+    "pillow>=10.1",
+    "tifffile>=2024.1.30",
+]
+
+[project.optional-dependencies]
+fits = ["astropy>=6.0"]
+
+[project.scripts]
+astro-stack = "astro_stack.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0", "astropy>=6.0"]
+
+[build-system]
+requires = ["uv_build>=0.10.9,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
